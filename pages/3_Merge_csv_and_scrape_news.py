@@ -131,7 +131,8 @@ if df_csv is not None and json_file is not None:
                         'Matched'    :     was_matched}
             
 
-            df_total = df_total.append(new_row, ignore_index=True)
+            #df_total = df_total.append(new_row, ignore_index=True)
+            df_total = pd.concat([df_total, new_row], ignore_index=True)
 
             current_position +=1
 
