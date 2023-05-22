@@ -74,7 +74,7 @@ df_matched_outliers_removed['z_score'] = (df_matched_outliers_removed['Page_view
 df_matched_outliers_removed = df_matched_outliers_removed[(df_matched_outliers_removed['z_score'] <= 3) & (df_matched_outliers_removed['z_score'] >= -3)]
 
 # calculate mean of remaining values grouped by 'position'
-result = df_matched_outliers_removed.groupby('Section')['Page_views','Position'].mean().round(0)
+result = df_matched_outliers_removed.groupby('Section')[['Page_views','Position']].mean().round(0)
 result = result.sort_values('Position', ascending=True)
 
 # add index
