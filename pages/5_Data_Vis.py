@@ -14,7 +14,7 @@ st.header('Data visualizations')
 
 df_csv = st.file_uploader("Upload matched csv", accept_multiple_files=False, type = 'csv')
 
-if len(df_csv) !=0:
+if df_csvis not None:
     df = pd.read_csv(df_csv,index_col = False)
     # convert date to string
     df['Date'] = df['Date'].astype(str)
