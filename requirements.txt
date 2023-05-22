@@ -3,5 +3,6 @@ numpy==1.24.2
 pandas==1.5.3
 plotly==5.13.1
 Requests==2.30.0
+selenium==4.9.1
 streamlit==1.19.0
-
+waybackpy==3.0.6
