@@ -144,7 +144,7 @@ st.write(f'Number of matches {matched}')
 st.write(f"Number unmatched  {unmatched}")
 st.write('These were missing')
 unmatched_list_df = pd.DataFrame(unmatched_list)
-st.df(unmatched_list_df)
+st.dataframe(unmatched_list_df)
 
 # download
 st.download_button(
