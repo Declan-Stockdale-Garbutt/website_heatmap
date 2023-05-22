@@ -91,15 +91,19 @@ if df_csv is not None and json_file is not None:
 
 
             # create row of data
-            new_row =  {'Date'       :     day_scrape['Date'],
+            new_row =  [{'Date'       :     day_scrape['Date'],
                         'Section'    :     section,
                         'Position'   :     current_position,
                         "Page_views" :     page_views,
-                        'Matched'    :     was_matched}
+                        'Matched'    :     was_matched}]
             
-
+            
+            # this is new
+            new_row_df = pd.DataFrame(data = new_row)
+            
+            
             #df_total = df_total.append(new_row, ignore_index=True)
-            df_total = pd.concat([df_total, new_row], ignore_index=True)
+            df_total = pd.concat([df_total, new_row_df], ignore_index=True)
             current_position +=1
 
 
