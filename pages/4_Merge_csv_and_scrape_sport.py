@@ -7,17 +7,21 @@ import os
 st.header('Merge Adobe info and json, only for sport due to a lot of hard coded edge cases')
 
 df_csv = st.file_uploader("Upload csv", accept_multiple_files=False, type = 'csv')
-df = pd.read_csv(df_csv,index_col = False)
-df['date'] = df['date'].astype(str)
-
-st.write('csv data')
-st.dataframe(df)
-
-
 json_file = st.file_uploader("Upload json", accept_multiple_files=False,type = 'json')
-data = json.load(json_file)
 
 if df_csv is not None and json_file is not None:
+    df = pd.read_csv(df_csv,index_col = False)
+    df['date'] = df['date'].astype(str)
+
+    st.write('csv data')
+    st.dataframe(df)
+
+
+
+    data = json.load(json_file)
+
+
+
 
     # do the matching
 
