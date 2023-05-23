@@ -7,17 +7,22 @@ import os
 st.header('Merge Adobe info and json, only for news due to a lot of hard coded edge cases')
 
 df_csv = st.file_uploader("Upload csv", accept_multiple_files=False)
-df = pd.read_csv(df_csv,index_col = False)
-df['date'] = df['date'].astype(str)
-
-st.write('csv data')
-st.dataframe(df)
-
 
 json_file = st.file_uploader("Upload json", accept_multiple_files=False)
-data = json.load(json_file)
 
 if df_csv is not None and json_file is not None:
+
+    df = pd.read_csv(df_csv,index_col = False)
+    df['date'] = df['date'].astype(str)
+
+    st.write('csv data')
+    st.dataframe(df)
+
+
+
+    data = json.load(json_file)
+
+
 
     # do the matching
 
@@ -140,19 +145,19 @@ if df_csv is not None and json_file is not None:
             current_position +=1
 
             
-st.write(f'Number of matches {matched}')
-st.write(f"Number unmatched  {unmatched}")
-st.write('These were missing')
-unmatched_list_df = pd.DataFrame(unmatched_list)
-st.dataframe(unmatched_list_df)
+    st.write(f'Number of matches {matched}')
+    st.write(f"Number unmatched  {unmatched}")
+    st.write('These were missing')
+    unmatched_list_df = pd.DataFrame(unmatched_list)
+    st.dataframe(unmatched_list_df)
 
-# download
-st.download_button(
-    label="Download data as CSV",
-    data=df_total.to_csv(index=False),#.encode('utf-8'),
-    file_name='matched_news.csv',
-    mime='text/csv',
-)
+    # download
+    st.download_button(
+        label="Download data as CSV",
+        data=df_total.to_csv(index=False),#.encode('utf-8'),
+        file_name='matched_news.csv',
+        mime='text/csv',
+    )
 
 
 
