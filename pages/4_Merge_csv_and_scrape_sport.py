@@ -119,13 +119,13 @@ if df_csv is not None and json_file is not None:
     st.dataframe(unmatched_list_df)
 
 
-# download
-st.download_button(
-    label="Download data as CSV",
-    data=df_total.to_csv(index=False),#.encode('utf-8'),
-    file_name='matched_sport.csv',
-    mime='text/csv',
-)
+    # download
+    st.download_button(
+        label="Download data as CSV",
+        data=df_total.to_csv(index=False),#.encode('utf-8'),
+        file_name='matched_sport.csv',
+        mime='text/csv',
+    )
 
 
 
