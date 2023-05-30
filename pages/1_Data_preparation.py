@@ -41,6 +41,8 @@ if len(uploaded_files) != 0:
     # convert to utf 8 (removes weird html issues)
     df_combined['section'] = df_combined['section'].str.encode('utf-8')
     
+    st.subheader('Dataframme')
+    st.dataframe(df_combined)
 
     # download
     st.download_button(
