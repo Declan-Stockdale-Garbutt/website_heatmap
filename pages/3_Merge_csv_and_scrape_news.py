@@ -13,6 +13,10 @@ json_file = st.file_uploader("Upload json", accept_multiple_files=False)
 if df_csv is not None and json_file is not None:
 
     df = pd.read_csv(df_csv,index_col = False, dtype={'section': str}) # new dtype
+    
+    st.write('dtypes')
+    st.write(df.dtypes)
+    
     df['date'] = df['date'].astype(str)
 
     st.write('csv data')
