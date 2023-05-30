@@ -16,7 +16,9 @@ if df_csv is not None and json_file is not None:
     st.write('dtypes')
     st.write(df.dtypes)
     
-    df['section'] = df['section'].values.astype(str) # this is new
+    df['section'] = df['section'].apply(str)   # .values.astype(str) # this is new
+
+    
     
     st.write('dtypes after section to string')
     st.write(df.dtypes)
