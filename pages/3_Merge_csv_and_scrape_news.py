@@ -16,12 +16,12 @@ if df_csv is not None and json_file is not None:
     st.write('dtypes')
     st.write(df.dtypes)
     
-    #df['section'] = df['section'].apply(str)   # .values.astype(str) # this is new
-    df['section'] = df['section'].str.decode("utf-8")
+    df['section'] = df['section'].apply(str)   # .values.astype(str) # this is new
+    #df['section'] = df['section'].str.decode("utf-8")
     
     
-    st.write('dtypes after section to string')
-    st.write(df.dtypes)
+    #st.write('dtypes after section to string')
+    #st.write(df.dtypes)
     
     df['date'] = df['date'].astype(str)
 
