@@ -34,12 +34,18 @@ if len(uploaded_files) != 0:
     df_combined['date'] = df_combined['date'].dt.strftime('%Y%m%d').astype(str)
 
     df_combined['section'] = df_combined['section'].str.lower()
+    
+    st.write('df str lower')
+    st.dataframe(df_combined)
 
     # fix row stuff
     df_combined['section'] = df_combined['section'].replace('sbs new podcast playlist', 'sbs news podcast playlist')
 
     # convert to utf 8 (removes weird html issues)
     df_combined['section'] = df_combined['section'].str.encode('utf-8')
+    
+    st.write('df after encode')
+    st.dataframe(df_combined)
     
     st.subheader('Dataframe')
     st.dataframe(df_combined)
