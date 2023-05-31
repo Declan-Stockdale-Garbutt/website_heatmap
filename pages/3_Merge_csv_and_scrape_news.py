@@ -13,16 +13,10 @@ json_file = st.file_uploader("Upload json", accept_multiple_files=False)
 if df_csv is not None and json_file is not None:
 
     df = pd.read_csv(df_csv,index_col = False, dtype={'section': str}) # new dtype
-    st.write('dtypes')
-    st.write(df.dtypes)
+
     
     df['section'] = df['section'].apply(str)   # .values.astype(str) # this is new
-    #df['section'] = df['section'].str.decode("utf-8")
-    
-    
-    #st.write('dtypes after section to string')
-    #st.write(df.dtypes)
-    
+   
     df['date'] = df['date'].astype(str)
 
     st.write('csv data')
@@ -154,7 +148,8 @@ if df_csv is not None and json_file is not None:
             df_total = pd.concat([df_total, new_row_df], ignore_index=True)
             current_position +=1
 
-            
+    st.write("")
+    st.subheader('Match results')
     st.write(f'Number of matches {matched}')
     st.write(f"Number unmatched  {unmatched}")
     st.write('These were missing')
@@ -162,6 +157,8 @@ if df_csv is not None and json_file is not None:
     st.dataframe(unmatched_list_df)
 
     # download
+    st.write("")
+    st.subheader('Download')
     st.download_button(
         label="Download data as CSV",
         data=df_total.to_csv(index=False),#.encode('utf-8'),
